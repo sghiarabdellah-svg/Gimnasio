@@ -20,7 +20,7 @@ public class GimnasioService {
     @Autowired
     private ClaseRepository claseRepository;
 
-    // ===== ENTRENADORES =====
+    //ENTRENADORES 
 
     public List<Entrenador> listarEntrenadores() {
         return entrenadorRepository.findAll();
@@ -38,7 +38,7 @@ public class GimnasioService {
         entrenadorRepository.deleteById(id);
     }
 
-    // ===== CLASES =====
+    // CLASES 
 
     public List<Clase> listarClases() {
         return claseRepository.findAll();
