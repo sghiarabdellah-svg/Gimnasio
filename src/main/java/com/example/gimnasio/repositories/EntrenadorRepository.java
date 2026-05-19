@@ -1,4 +1,8 @@
 package com.example.gimnasio.repositories;
 
-public interface EntrenadorRepository {
+import org.springframework.data.jpa.repository.JpaRepository;
+
+import com.example.gimnasio.models.Entrenador;
+
+public interface EntrenadorRepository extends JpaRepository<Entrenador, Long> {
 }
