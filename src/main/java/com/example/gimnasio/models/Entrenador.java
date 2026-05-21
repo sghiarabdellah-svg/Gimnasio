@@ -3,6 +3,8 @@ package com.example.gimnasio.models;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -21,6 +23,7 @@ public class Entrenador {
     private String especialidad;
     private String certificacion;
 
+    @JsonIgnore
     @OneToMany(mappedBy = "entrenador", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<Clase> clases = new ArrayList<>();
 

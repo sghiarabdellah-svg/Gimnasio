@@ -58,6 +58,7 @@ public class ClaseWebController {
 
     @PostMapping("/editar/{id}")
     public String actualizar(@PathVariable Long id, @ModelAttribute Clase clase) {
+        clase.setId(id);
         gimnasioService.guardarClase(clase);
         return "redirect:/web/clases";
     }
