@@ -39,6 +39,7 @@ public class ClaseApiController {
 
     @PutMapping("/{id}")
     public Clase actualizar(@PathVariable Long id, @RequestBody Clase clase) {
+        clase.setId(id);
         return gimnasioService.guardarClase(clase);
     }
 
