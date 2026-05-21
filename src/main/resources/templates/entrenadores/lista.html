@@ -1,1 +1,44 @@
-<!-- Plantilla vacía -->
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Entrenadores</title>
+</head>
+<body>
+
+<h1>Lista de Entrenadores</h1>
+
+<a th:href="@{/web/entrenadores/nuevo}">Nuevo Entrenador</a>
+
+<table border="1">
+    <tr>
+        <th>ID</th>
+        <th>Nombre</th>
+        <th>Especialidad</th>
+        <th>Certificación</th>
+        <th>Acciones</th>
+    </tr>
+
+    <tr th:each="e : ${entrenadores}">
+        <td th:text="${e.id}"></td>
+        <td th:text="${e.nombre}"></td>
+        <td th:text="${e.especialidad}"></td>
+        <td th:text="${e.certificacion}"></td>
+
+        <td>
+            <a th:href="@{/web/entrenadores/{id}(id=${e.id})}">Ver</a>
+
+            <a th:href="@{/web/entrenadores/editar/{id}(id=${e.id})}">
+                Editar
+            </a>
+
+            <form th:action="@{/web/entrenadores/borrar/{id}(id=${e.id})}"
+                  method="post"
+                  style="display:inline;">
+                <button type="submit">Borrar</button>
+            </form>
+        </td>
+    </tr>
+</table>
+
+</body>
+</html>

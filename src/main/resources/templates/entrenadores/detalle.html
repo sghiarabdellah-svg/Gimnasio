@@ -1,1 +1,43 @@
-<!-- Plantilla vacía -->
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Detalle Entrenador</title>
+</head>
+<body>
+
+<h1>Detalle del Entrenador</h1>
+
+<p>
+    <strong>ID:</strong>
+    <span th:text="${entrenador.id}"></span>
+</p>
+
+<p>
+    <strong>Nombre:</strong>
+    <span th:text="${entrenador.nombre}"></span>
+</p>
+
+<p>
+    <strong>Especialidad:</strong>
+    <span th:text="${entrenador.especialidad}"></span>
+</p>
+
+<p>
+    <strong>Certificación:</strong>
+    <span th:text="${entrenador.certificacion}"></span>
+</p>
+
+<h2>Clases</h2>
+
+<ul>
+    <li th:each="c : ${entrenador.clases}">
+        <span th:text="${c.nombre}"></span>
+    </li>
+</ul>
+
+<a th:href="@{/web/entrenadores}">
+    Volver
+</a>
+
+</body>
+</html>

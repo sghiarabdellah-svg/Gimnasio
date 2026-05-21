@@ -1,1 +1,62 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Clases</title>
+</head>
+<body>
 
+<h1>Lista de Clases</h1>
+
+<a th:href="@{/web/clases/nueva}">Nueva clase</a>
+
+<form method="get" th:action="@{/web/clases}">
+    <input type="text" name="diaSemana" placeholder="Buscar por día">
+    <button type="submit">Buscar</button>
+</form>
+
+<br>
+
+<form method="get" th:action="@{/web/clases}">
+    <input type="text" name="nivel" placeholder="Buscar por nivel">
+    <button type="submit">Buscar</button>
+</form>
+
+<br>
+
+<table border="1">
+
+    <tr>
+        <th>Nombre</th>
+        <th>Día</th>
+        <th>Hora</th>
+        <th>Nivel</th>
+        <th>Entrenador</th>
+        <th>Acciones</th>
+    </tr>
+
+    <tr th:each="c : ${clases}">
+        <td th:text="${c.nombre}"></td>
+        <td th:text="${c.diaSemana}"></td>
+        <td th:text="${c.horaInicio}"></td>
+        <td th:text="${c.nivel}"></td>
+        <td th:text="${c.entrenador != null ? c.entrenador.nombre : 'Sin entrenador'}"></td>
+
+        <td>
+
+            <a th:href="@{/web/clases/editar/{id}(id=${c.id})}">
+                Editar
+            </a>
+
+            <form th:action="@{/web/clases/borrar/{id}(id=${c.id})}"
+                  method="post"
+                  style="display:inline;">
+                <button type="submit">Borrar</button>
+            </form>
+
+        </td>
+    </tr>
+
+</table>
+
+</body>
+</html>

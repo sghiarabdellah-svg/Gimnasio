@@ -1,1 +1,35 @@
-<!-- Plantilla vacía -->
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Formulario Entrenador</title>
+</head>
+<body>
+
+<h1>Formulario Entrenador</h1>
+
+<form th:object="${entrenador}" method="post">
+
+    <label>Nombre:</label>
+    <input type="text" th:field="*{nombre}">
+    <br><br>
+
+    <label>Especialidad:</label>
+    <input type="text" th:field="*{especialidad}">
+    <br><br>
+
+    <label>Certificación:</label>
+    <input type="text" th:field="*{certificacion}">
+    <br><br>
+
+    <button type="submit">Guardar</button>
+
+</form>
+
+<br>
+
+<a th:href="@{/web/entrenadores}">
+    Volver
+</a>
+
+</body>
+</html>

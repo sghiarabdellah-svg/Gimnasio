@@ -1,1 +1,58 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Formulario Clase</title>
+</head>
+<body>
 
+<h1>Formulario Clase</h1>
+
+<form th:object="${clase}" method="post">
+
+    <label>Nombre:</label>
+    <input type="text" th:field="*{nombre}">
+    <br><br>
+
+    <label>Día:</label>
+    <input type="text" th:field="*{diaSemana}">
+    <br><br>
+
+    <label>Hora:</label>
+    <input type="text" th:field="*{horaInicio}">
+    <br><br>
+
+    <label>Duración:</label>
+    <input type="number" th:field="*{duracionMin}">
+    <br><br>
+
+    <label>Plazas máximas:</label>
+    <input type="number" th:field="*{plazasMax}">
+    <br><br>
+
+    <label>Plazas ocupadas:</label>
+    <input type="number" th:field="*{plazasOcupadas}">
+    <br><br>
+
+    <label>Nivel:</label>
+    <input type="text" th:field="*{nivel}">
+    <br><br>
+
+    <label>Entrenador:</label>
+
+    <select th:field="*{entrenador}">
+        <option th:each="e : ${entrenadores}"
+                th:value="${e.id}"
+                th:text="${e.nombre}">
+        </option>
+    </select>
+
+    <br><br>
+
+    <button type="submit">
+        Guardar
+    </button>
+
+</form>
+
+</body>
+</html>
